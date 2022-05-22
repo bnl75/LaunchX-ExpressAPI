@@ -35,6 +35,16 @@ app.get('/v1/explorers/:id', (req, res) => {
     res.status(200).json(explorer);
 });
 
+//Creo un endpoint POST que se encarga de crear un explorer:
+app.post('/v1/explorers', (req, res) => {
+    console.log(`API Explorers POST request ${new Date()}`);
+
+    const requestBody = req.body; //Parámetros recibidos del cliente
+
+    res.status(201).json({message: "Created"});
+    
+});
+
 //Inicializo la app de Express:
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
