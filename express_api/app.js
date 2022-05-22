@@ -54,6 +54,16 @@ app.put('/v1/explorers/:id', (req, res) => {
     res.status(200).json({message: "Update!"});
 });
 
+//Creo un endpoint DELETE para eliminar un explorer
+app.delete('/v1/explorers/:id', (req, res) => {
+    console.log(`API Explorers DELETE request ${new Date()}`);
+    console.log(`Delete explorer with id ${req.params.id}`);
+
+    const requestBody = req.body; //Parámetros recibidos del cliente
+
+    res.status(200).json({message: "Delete!"});
+});
+
 //Inicializo la app de Express:
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
