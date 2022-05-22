@@ -29,7 +29,7 @@ app.get('/v1/explorers', (req, res) => {
 app.get('/v1/explorers/:id', (req, res) => {
     console.log(`API Explorers GET request ${new Date()}`);
     console.log(`Getting explorer with ID ${req.params.id}`);
-    
+
     const explorer = {id: 1, name: "Diego"};
 
     res.status(200).json(explorer);
@@ -42,7 +42,16 @@ app.post('/v1/explorers', (req, res) => {
     const requestBody = req.body; //Parámetros recibidos del cliente
 
     res.status(201).json({message: "Created"});
-    
+});
+
+//Creo un endpoint PUT que se encarga de actualizar un explorer:
+app.put('/v1/explorers/:id', (req, res) => {
+    console.log(`API Explorers PUT request ${new Date()}`);
+    console.log(`Update explorer with id ${req.params.id}`);
+
+    const requestBody = req.body; //Parámetros recibidos del cliente
+
+    res.status(200).json({message: "Update!"});
 });
 
 //Inicializo la app de Express:
