@@ -25,6 +25,16 @@ app.get('/v1/explorers', (req, res) => {
     res.status(200).json(explorers);
 });
 
+//Creo un endpoint GET que regrese un explorer mediante un ID enviado como parámetro en la URL:
+app.get('/v1/explorers/:id', (req, res) => {
+    console.log(`API Explorers GET request ${new Date()}`);
+    console.log(`Getting explorer with ID ${req.params.id}`);
+    
+    const explorer = {id: 1, name: "Diego"};
+
+    res.status(200).json(explorer);
+});
+
 //Inicializo la app de Express:
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
